@@ -1,20 +1,27 @@
-class Car {
-  constructor(color) {
-    this.color = color;
+import React from "react";
+
+const users = [
+  { id: 1, name: "Leanne Graham" },
+  { id: 2, name: "Ervin Howell" },
+  { id: 3, name: "Clementine Bauch" },
+  { id: 4, name: "Patricia Lebsack" }
+];
+
+export default class App extends React.Component {
+  func() {
+    return users.map((user) => {
+      return <li id={user.id}>{user.name} </li>;
+    });
   }
 
-  getColor() {
-    console.log(this);
-    // return this.color;
+  render() {
+    let usersList = this.func();
+    return (
+      <ul>
+        {usersList.forEach((li) => {
+          return li;
+        })}
+      </ul>
+    );
   }
 }
-
-let honda = new Car("red");
-
-// console.log(honda.getColor());
-
-// honda.getColor();
-
-let myCar = honda.getColor;
-
-myCar.call(honda);
